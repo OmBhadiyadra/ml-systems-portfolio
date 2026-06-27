@@ -1,0 +1,11 @@
+torch>=2.1.0
+transformers>=4.40.0
+peft>=0.10.0
+accelerate>=0.29.0
+bitsandbytes>=0.43.0
+lm-eval>=0.4.2
+fastapi>=0.110.0
+uvicorn>=0.29.0
+datasets>=2.18.0
+sentencepiece
+protobuf
