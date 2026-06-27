@@ -41,9 +41,12 @@ def compute_perplexity(model, tokenizer, texts, device, max_length=256):
 
 
 def count_trainable_params(model):
-    trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    # Note: PeftModel.from_pretrained() defaults to is_trainable=False (inference
+    # mode), which sets requires_grad=False on adapter weights too. Counting by
+    # parameter name instead gives the structural LoRA size regardless of mode.
+    lora_params = sum(p.numel() for n, p in model.named_parameters() if "lora_" in n)
     total = sum(p.numel() for p in model.parameters())
-    return trainable, total
+    return lora_params, total
 
 
 def main(cfg_path, adapter_dir, eval_split, n_eval_samples):
