@@ -49,12 +49,16 @@ Both are swappable in `config.yaml`.
 
 ## Results
 
-_To be filled in after running on Colab._
+Run on a Colab T4 GPU, 1 epoch, 2,000 examples from `tatsu-lab/alpaca`.
 
 | Model | Perplexity | Trainable Params | % of Total |
 |---|---|---|---|
-| Base (Qwen2.5-0.5B) | TBD | — | — |
-| LoRA fine-tuned | TBD | TBD | TBD |
+| Base (Qwen2.5-0.5B) | 7.326 | — | — |
+| LoRA fine-tuned | 3.307 | 540,672 | 0.109% |
+
+Fine-tuning reduced perplexity by 4.019 (~55%) while updating only 0.109% of
+total model parameters — demonstrating LoRA's core value: near-full-model
+adaptation quality at a fraction of the trainable parameter cost.
 
 ## Notes
 
