@@ -1,0 +1,11 @@
+model_name: "Qwen/Qwen2.5-0.5B"
+dataset_name: "tatsu-lab/alpaca"
+dataset_split: "train[:1000]"
+text_field: "text"
+max_seq_length: 256
+
+per_device_batch_size: 4
+learning_rate: 2.0e-4
+num_epochs: 1
+max_steps: 40
+log_every: 5
