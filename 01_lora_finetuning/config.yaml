@@ -1,0 +1,23 @@
+model_name: "Qwen/Qwen2.5-0.5B"
+dataset_name: "tatsu-lab/alpaca"
+dataset_split: "train[:2000]"
+text_field: "text"
+max_seq_length: 256
+
+# LoRA hyperparameters
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_modules: ["q_proj", "v_proj"]
+
+# Training hyperparameters
+per_device_batch_size: 4
+gradient_accumulation_steps: 4
+learning_rate: 2.0e-4
+num_epochs: 1
+warmup_steps: 10
+max_grad_norm: 1.0
+
+log_every: 5
+checkpoint_every: 50
+output_dir: "outputs/lora_run"
